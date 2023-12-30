@@ -20,7 +20,6 @@ public class HelloServlet extends HttpServlet {
         POSTGRESQL_URL = System.getenv("POSTGRESQL_URL");
         POSTGRESQL_USERNAME = System.getenv("POSTGRESQL_USERNAME");
         POSTGRESQL_PASSWORD = System.getenv("POSTGRESQL_PASSWORD");
-        message = getTextFromDb();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -30,7 +29,7 @@ public class HelloServlet extends HttpServlet {
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + getTextFromDb() + "</h1>");
         out.println("<h1>" + getInfoFromServlet() + "</h1>");
         out.println("</body></html>");
     }
