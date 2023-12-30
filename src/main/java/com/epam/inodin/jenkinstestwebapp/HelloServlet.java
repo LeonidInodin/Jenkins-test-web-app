@@ -11,7 +11,6 @@ import java.sql.*;
 
 @WebServlet(name = "/helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    private String message;
     private String POSTGRESQL_URL;
     private String POSTGRESQL_USERNAME;
     private String POSTGRESQL_PASSWORD;
