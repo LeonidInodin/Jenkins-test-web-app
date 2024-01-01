@@ -19,16 +19,4 @@ public class HelloServletUnitTests {
         //then
         assertEquals(expectedString, resultString);
     }
-
-    //Test won't pass every time
-
-    /*@Test
-    void getInfoFromServlet_returnsWrongString() {
-        //given
-        var expectedString = "Wrong string";
-        //when
-        var resultString = helloServlet.getInfoFromServlet();
-        //then
-        assertEquals(expectedString, resultString);
-    }*/
 }
