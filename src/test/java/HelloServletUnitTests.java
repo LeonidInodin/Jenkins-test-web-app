@@ -21,8 +21,8 @@ public class HelloServletUnitTests {
     }
 
     //Test won't pass every time
-    @Disabled
-    @Test
+
+    /*@Test
     void getInfoFromServlet_returnsWrongString() {
         //given
         var expectedString = "Wrong string";
@@ -30,5 +30,5 @@ public class HelloServletUnitTests {
         var resultString = helloServlet.getInfoFromServlet();
         //then
         assertEquals(expectedString, resultString);
-    }
+    }*/
 }

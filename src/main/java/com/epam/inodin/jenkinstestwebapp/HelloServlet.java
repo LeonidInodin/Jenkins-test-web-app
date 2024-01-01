@@ -11,14 +11,14 @@ import java.sql.*;
 
 @WebServlet(name = "/helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    private String POSTGRESQL_URL;
-    private String POSTGRESQL_USERNAME;
-    private String POSTGRESQL_PASSWORD;
+    private String postgresqlUrl;
+    private String postgresqlUsername;
+    private String postgresqlPassword;
 
     public void init() {
-        POSTGRESQL_URL = System.getenv("POSTGRESQL_URL");
-        POSTGRESQL_USERNAME = System.getenv("POSTGRESQL_USERNAME");
-        POSTGRESQL_PASSWORD = System.getenv("POSTGRESQL_PASSWORD");
+        postgresqlUrl = System.getenv("POSTGRESQL_URL");
+        postgresqlUsername = System.getenv("POSTGRESQL_USERNAME");
+        postgresqlPassword = System.getenv("POSTGRESQL_PASSWORD");
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -42,11 +42,7 @@ public class HelloServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        try {
-            Connection connection = DriverManager.getConnection(
-                    POSTGRESQL_URL,
-                    POSTGRESQL_USERNAME,
-                    POSTGRESQL_PASSWORD);
+        try (Connection connection = DriverManager.getConnection(postgresqlUrl, postgresqlUsername, postgresqlPassword)) {
             Statement stmnt = connection.createStatement();
             ResultSet rs = stmnt.executeQuery("SELECT text FROM example WHERE id=1");
             rs.next();
