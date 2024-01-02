@@ -13,7 +13,6 @@ import java.util.Scanner;
 @WebServlet(name = "/helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
 
-    public String VARIABLEWITHABSOLUTELYNONCONVENTIONALNAME;
     private String postgresqlUrl;
     private String postgresqlUsername;
     private String postgresqlPassword;
@@ -57,14 +56,10 @@ public class HelloServlet extends HttpServlet {
     }
 
     public String getInfoFromServlet(){
-        Scanner sc = new Scanner(System.in);
         return "Hello from servlet!";
     }
 
     public void destroy() {
     }
 
-    public void absolutelyUselessMethod1(){}
-
-    public void absolutelyUselessMethod2(){}
 }
