@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     deploy adapters: [tomcat9(credentialsId: 'bcefd924-eebf-4a91-a4f5-4b8cf585737a', path: '', url: 'http://localhost:8080')],
-                            contextPath: '/DeployWithJenkinsfile', onFailure: false, war: 'webapp/target/*.war'
+                            contextPath: '/DeployWithJenkinsfile', onFailure: false, war: 'target/*.war'
                 }
             }
         }
