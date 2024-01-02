@@ -2,10 +2,11 @@ pipeline {
     agent any
     tools {
         maven 'maven_3.9.6'
+        jdk 'Java17'
     }
     stages {
         stage("Maven lifecycle") {
-            agent any
+            //agent any
             steps {
                 bat 'mvn clean validate compile test package'
             }
