@@ -7,7 +7,7 @@ pipeline {
         stage("Maven lifecycle") {
             agent any
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean validate compile test package'
             }
         }
         stage('SonarQube analysis') {
