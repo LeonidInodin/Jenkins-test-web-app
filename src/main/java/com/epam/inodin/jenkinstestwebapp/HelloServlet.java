@@ -11,6 +11,8 @@ import java.sql.*;
 
 @WebServlet(name = "/helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
+
+    public String VARIABLEWITHABSOLUTELYNONCONVENTIONALNAME;
     private String postgresqlUrl;
     private String postgresqlUsername;
     private String postgresqlPassword;
@@ -22,14 +24,6 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        /*sjgksdglkdgldfg
-                dgdgdfgdgdgdf
-                dgfdgdfgdfgdfgdfg
-                        dgdgdgdfgdfgdfgdf
-                        dfgdfgdfgfdgfgdfgdfgdfgdfg
-                                dgdgdfgdffgdgdfgdfgdgdfg
-                                dgdfggdgfgdggxvfdggdgdfgdd*/
 
         response.setContentType("text/html");
 
@@ -62,9 +56,18 @@ public class HelloServlet extends HttpServlet {
     }
 
     public String getInfoFromServlet(){
+        try {
+            Connection connection = DriverManager.getConnection(postgresqlUrl, postgresqlUsername, postgresqlPassword);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return "Hello from servlet!";
     }
 
     public void destroy() {
     }
+
+    public void absolutelyUselessMethod1(){}
+
+    public void absolutelyUselessMethod2(){}
 }
