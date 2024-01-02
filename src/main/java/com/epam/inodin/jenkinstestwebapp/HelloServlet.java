@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.Scanner;
 
 @WebServlet(name = "/helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
@@ -56,11 +57,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     public String getInfoFromServlet(){
-        try {
-            Connection connection = DriverManager.getConnection(postgresqlUrl, postgresqlUsername, postgresqlPassword);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        Scanner sc = new Scanner(System.in);
         return "Hello from servlet!";
     }
 
