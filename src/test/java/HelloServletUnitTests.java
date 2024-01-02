@@ -13,7 +13,7 @@ public class HelloServletUnitTests {
     @Test
     void getInfoFromServlet_returnsString() {
         //given
-        var expectedString = "Hello from servlet!";
+        var expectedString = "!!!!Hello from servlet!";
         //when
         var resultString = helloServlet.getInfoFromServlet();
         //then
