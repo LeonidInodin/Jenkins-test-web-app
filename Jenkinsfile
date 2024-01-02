@@ -4,14 +4,23 @@ pipeline {
     maven 'maven_3.9.6'
   }
   stages {
-    stage("build & SonarQube analysis") {
+    stage("Maven lifecycle") {
                 agent any
                 steps {
-                  withSonarQubeEnv('sonar') {
-                    sh 'mvn clean package sonar:sonar'
-                  }
+                  sh 'mvn clean package'
                 }
               }
+    stage('SonarQube analysis') {
+                steps {
+            script {
+              scannerHome = tool 'D:\Prog\sonar-scanner-5.0.1.3006-windows'
+            }
+            withSonarQubeEnv('sonar') {
+              bat "${scannerHome}/bin/sonar-scanner"
+            }
+          }
+        }
+      }
     stage("Quality Gate") {
                 steps {
                   timeout(time: 1, unit: 'HOURS') {
